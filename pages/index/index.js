@@ -11,7 +11,8 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
     inputid:'',
-    inputpasscode:''
+    inputpasscode:'',
+    inputpasscode2:''
   },
   // 事件处理函数
   bindViewTap() {
@@ -70,8 +71,15 @@ bindIDInput:function(e){
     console.log(e.detail)
   }, 
 
+  bindPasscode2:function(e){
+    this.setData({
+      passcode:e.detail.value
+    })
+    console.log(e.detail)
+  }, 
+
   bindregistertap() {
-    if(this.inputid === this.passcode){
+    if(this.passcode2 === this.passcode){
     wx.showToast({
       title: 'Succeed!',
       icon: 'success',
