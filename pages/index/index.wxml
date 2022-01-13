@@ -2,7 +2,8 @@
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
+      <view class="userinfo-avatar" bindtap="bindViewTap"> 
+      <!--here is where tapping leads to other page-->
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>
@@ -17,7 +18,23 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <image src='../../utils/images/shk.png'></image>
+
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <view class="userinfo">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  
+  <text>\nPlease Register before Using\n\n</text>
+
+  <input id="testing" type="text" placeholder="Enter ID" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindIDInput' value="{{inputid}}" />
+  <input type="text" placeholder="Enter passcode" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='passcode'  value="{{inputpasscode}}" />
+  <input type="text" placeholder="Confirm passcode" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindIDInput' />
+  <text>\n</text>
+  <button type="primary" bindtap="bindregistertap" plain="true" >Register</button>
+
+
+
 </view>

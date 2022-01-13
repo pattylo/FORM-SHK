@@ -4,12 +4,14 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Hello SHK User',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+    inputid:'',
+    inputpasscode:''
   },
   // 事件处理函数
   bindViewTap() {
@@ -29,7 +31,7 @@ Page({
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res)
+        console.log(res)        
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -44,5 +46,59 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+bindIDInput:function(e){
+    this.setData({
+      inputid: e.detail.value
+    })
+    console.log(e.detail)
+  },
+
+  // getInputName:function(e){
+  //   console.log(e.detail)
+  //   // 获取到input的值
+  //   let inputid = e.detail.value;
+  //   // 获取到光标的位置
+  //   let local = e.detail.cursor;
+  // },
+
+  passcode:function(e){
+    this.setData({
+      passcode:e.detail.value
+    })
+  }, 
+
+  bindregistertap() {
+    if(this.inputid === this.passcode){
+    wx.showToast({
+      title: 'Succeed!',
+      icon: 'success',
+      duration: 2000
+    })
+    //then navigate
+  }else{
+    wx.showToast({
+      title: 'Fail!',
+      icon: 'error',
+      duration: 2000
+    })
+}
+    
+  },
+
+
+  
+  testfunction(){
+    wx.setStorage({
+    key: 'number',
+    data: res.data.result.number
+    })
   }
+
+  
+
+
 })
+
+

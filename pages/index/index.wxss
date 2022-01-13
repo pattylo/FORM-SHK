@@ -15,5 +15,26 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+
+input{
+  width: 300rpx;
+  border: 2rpx solid #000;
+  margin: 10rpx auto;
+  border-radius:10rpx; 
+}
+
+image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+
+}
+
+.phcolor{
+	color:#C8C9CC;
+	font-size: 15px;
 }
