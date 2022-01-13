@@ -63,10 +63,11 @@ bindIDInput:function(e){
   //   let local = e.detail.cursor;
   // },
 
-  passcode:function(e){
+  bindPasscode:function(e){
     this.setData({
       passcode:e.detail.value
     })
+    console.log(e.detail)
   }, 
 
   bindregistertap() {
