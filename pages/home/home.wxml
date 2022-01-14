@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+
+  <image src='../../utils/images/shk.png'></image>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class="userinfo">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  
+  <text>\nPlease Register before Using\n\n</text>
+
+  <input id="testing" type="text" placeholder="Enter ID" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindIDInput'/>
+  <input type="text" placeholder="Enter passcode" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindPasscode'/>
+  <input type="text" placeholder="Confirm passcode" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindPasscode2'/>
+  <text>\n</text>
+  <button type="primary" bindtap="bindregistertap" plain="true" >Register</button>
+
+
+
+</view>
