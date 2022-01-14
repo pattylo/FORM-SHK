@@ -1,10 +1,9 @@
 // index.js
-// 获取应用实例sdfsdf
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello SHK User',
+    motto: '早晨 SHK 師傅師姐',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -14,7 +13,7 @@ Page({
     inputpasscode:'',
     inputpasscode2:''
   },
-  // 事件处理函数
+  // function
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs'
@@ -49,7 +48,7 @@ Page({
     })
   },
 
-bindIDInput:function(e){
+  bindIDInput:function(e){
     this.setData({
       inputid: e.detail.value
     })
@@ -71,25 +70,45 @@ bindIDInput:function(e){
   }, 
 
   bindregistertap() {
-
-    if(this.data.inputpasscode2 == this.data.inputpasscode){
-    wx.showToast({
-      title: 'Succeed!',
-      icon: 'success',
-      duration: 2000
-    })
-    wx.navigateTo({
-      url: '../home/home'
-    })
-    //then navigate
+    if(this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
+      wx.showToast({
+        title: '唔該輸入密碼!',
+        icon: 'error',
+        duration: 2000
+      })   
     }else{
-    wx.showToast({
-      title: 'Fail!',
-      icon: 'error',
-      duration: 2000
+      if(this.data.inputpasscode2 == this.data.inputpasscode){
+        wx.showToast({
+          title: '成功!',
+          icon: 'success',
+          duration: 2000
+        })
+        wx.redirectTo({
+          url: '../home/home'
+        })
+        wx.setStorage({
+          key:"ID",
+          data:this.data.inputid
+        })
+        wx.setStorage({
+          key:"passcode",
+          data:this.data.inputpasscode
+        })
+        }else{
+        wx.showToast({
+          title: '密碼唔同!',
+          icon: 'error',
+          duration: 2000
+        })    
+      }    
+    }
+
+    wx.setStorage({
+      key
+
     })
-    
-  }    
+
+      
   },
 
   doLogin: function(e) {

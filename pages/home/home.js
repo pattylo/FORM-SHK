@@ -11,6 +11,13 @@ Page({
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
 
   },
+
+  onLoad() {
+    // if (wx.canIUse('hideHomeButton')) {
+    //     wx.hideHomeButton()
+    //   }
+    
+  },
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({
@@ -19,11 +26,19 @@ Page({
   },
 
   bindScanTap() {
-    wx.scanCode({
-        success (res) {
-          console.log(res)
-        }
-      })
+    // wx.scanCode({
+    //     success (res) {
+    //       console.log(res)
+    //     }
+    //   })
+
+    // wx.getStorage({
+    //     key:'ID',
+    //     success: function(res){
+    //         console.log(res.data)
+    //         testid: this.data.
+    //     }
+    // })
     
   },
 
