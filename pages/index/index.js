@@ -88,7 +88,7 @@ Page({
         })
         wx.setStorage({
           key:"ID",
-          data:this.data.inputid
+          data:this.data.inputid //start from here to validate
         })
         wx.setStorage({
           key:"passcode",
@@ -103,10 +103,10 @@ Page({
       }    
     }
 
-    wx.setStorage({
-      key
+    // wx.setStorage({
+    //   key
 
-    })
+    // })
 
       
   },

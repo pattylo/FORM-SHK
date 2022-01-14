@@ -26,11 +26,11 @@ Page({
   },
 
   bindScanTap() {
-    // wx.scanCode({
-    //     success (res) {
-    //       console.log(res)
-    //     }
-    //   })
+    wx.scanCode({
+        success (res) {
+          console.log(res)
+        }
+      })
 
     // wx.getStorage({
     //     key:'ID',
