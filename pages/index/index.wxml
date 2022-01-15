@@ -34,6 +34,8 @@
   <input type="text" placeholder="Confirm passcode" placeholder-class="phcolor" placeholder-style="color:e2e2e2;"  bindinput='bindPasscode2'/>
   <text>\n</text>
   <button type="primary" bindtap="bindregistertap" plain="true" >Register</button>
+  <text>\n</text>
+  <button type="primary" bindtap="developertap"  >developer shortcut</button>
 
 
 

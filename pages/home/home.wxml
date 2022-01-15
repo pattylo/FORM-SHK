@@ -11,11 +11,9 @@
   </view>
   <text>\n</text>
   <text>\n</text>
-  <text>USER ID: </text>
+  <text>SHK USER ID: </text>
+  <text class="user-motto">{{getuserID}}</text>
 
-  <!-- <view class="usermotto"> -->
-    <text class="user-motto">{{getuserID}}</text>
-  <!-- </view> -->
   
   <text>\n</text>
   <text>Scan QR Code</text>

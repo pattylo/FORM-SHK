@@ -69,8 +69,14 @@ Page({
     console.log(e.detail)
   }, 
 
+  developertap(){
+    wx.redirectTo({
+      url: '../home/home'
+    })
+  },
+
   bindregistertap() {
-    if(this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
+    if(this.data.userId || this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
       wx.showToast({
         title: '唔該輸入密碼!',
         icon: 'error',

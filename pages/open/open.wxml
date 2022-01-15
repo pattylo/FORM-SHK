@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+
+<image src='../../utils/images/shk.png'></image>
+<!-- 
+<view class="usermotto">
+  <text class="user-motto">{{motto}}</text>
+</view>
+<view class="userinfo">
+  <text class="user-motto">{{motto}}</text>
+</view>
+<text>\n</text>
+<text>\n</text>
+<text>SHK USER ID: </text>
+<text class="user-motto">{{getuserID}}</text>
+
+
+<text>\n</text>
+<text>Scan QR Code</text>
+
+<text>\n</text>
+<button type="primary" bindtap="bindScanTap" plain="true" >Scan</button> -->
+</view>
