@@ -9,6 +9,13 @@
   <view class="userinfo">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <text>\n</text>
+  <text>\n</text>
+  <text>USER ID: </text>
+
+  <!-- <view class="usermotto"> -->
+    <text class="user-motto">{{getuserID}}</text>
+  <!-- </view> -->
   
   <text>\n</text>
   <text>Scan QR Code</text>

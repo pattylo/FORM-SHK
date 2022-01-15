@@ -3,7 +3,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '早晨 SHK 師傅師姐',
+    motto: '您好! SHK 師傅師姐',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -82,10 +82,7 @@ Page({
           title: '成功!',
           icon: 'success',
           duration: 2000
-        })
-        wx.redirectTo({
-          url: '../home/home'
-        })
+        })        
         wx.setStorage({
           key:"ID",
           data:this.data.inputid //start from here to validate
@@ -93,6 +90,9 @@ Page({
         wx.setStorage({
           key:"passcode",
           data:this.data.inputpasscode
+        })
+        wx.redirectTo({
+          url: '../home/home'
         })
         }else{
         wx.showToast({
