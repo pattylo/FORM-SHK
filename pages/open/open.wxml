@@ -2,7 +2,7 @@
 <view class="container">
 
 <image src='../../utils/images/shk.png'></image>
-<!-- 
+
 <view class="usermotto">
   <text class="user-motto">{{motto}}</text>
 </view>
@@ -19,5 +19,5 @@
 <text>Scan QR Code</text>
 
 <text>\n</text>
-<button type="primary" bindtap="bindScanTap" plain="true" >Scan</button> -->
+<button type="primary" bindtap="bindScanTap" plain="true" >Scan</button>
 </view>

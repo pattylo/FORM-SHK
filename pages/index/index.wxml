@@ -37,6 +37,4 @@
   <text>\n</text>
   <button type="primary" bindtap="developertap"  >developer shortcut</button>
 
-
-
 </view>
