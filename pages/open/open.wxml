@@ -4,15 +4,25 @@
 <image src='../../utils/images/fall.png'></image>
 <text>\n</text>
 
-<text class="user-motto">樓層門已打開\n</text>
+<text class="user-motto">樓層門已打開\n\n</text>
+
 <text>@{{open_time}}</text>
 <text>Floor Opening ID: {{getflooropenid}}</text>
 
-
+<view class="userinfo">
+    <block wx:if="{{request}}">
+        <text class="userinfo-nickname">request success</text>
+    </block>   
+    <block wx:else>
+      <text class="userinfo-nickname">request fail</text>
+    </block>
+  </view>
 
 <text>\n</text>
 <text>SHK USER ID: </text>
 <text class="user-motto">{{getuserID}}</text>
+
+
 
 <text>\n</text>
 <button type="primary" bindtap="bindScanTap">Scan QR code to close</button>

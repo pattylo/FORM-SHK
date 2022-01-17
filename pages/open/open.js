@@ -5,14 +5,11 @@ var util = require('../../utils/util');
 Page({
   data: {
     motto: '早晨! SHK 師傅師姐',
-    userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
     getuserID:'',
     open_time:'',
-    getflooropenid:''
+    getflooropenid:'',
+    request:false
   },
 
   onLoad: function() {
@@ -38,15 +35,30 @@ Page({
           getflooropenid:res.data
         })
       }
-    }) 
+    }) ;
 
     var time_temp = util.formatTime(new Date());
     that.setData({
       open_time: time_temp
     });
-    
+
+    wx.request({
+      url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
+      method:'GET',
+      success: function(res) {
+       console.log(res.data);
+       that.setData({
+         request: true
+       })
+      },
+
+      fail: function( res ) {
+        console.log(res.data);
+       }
+     })
+
   },
-  // 事件处理函数
+
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs'
@@ -87,7 +99,6 @@ Page({
         }
     })          
   },
-
 })
 
 

@@ -14,6 +14,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openID_global:'',
+    userID_global:''
   }
 })

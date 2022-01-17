@@ -1,5 +1,5 @@
 // home.js
-const app = getApp()
+var app = getApp()
 
 Page({
   data: {
@@ -38,8 +38,12 @@ Page({
           wx.setStorage({
             key:"floor_open_id",
             //data:this.data.inputid //start from here to validate
-            data:res.result
+            data:res.result,            
           })
+
+          getApp().globalData.openID_global = res.result;
+          getApp().globalData.userID_global = that.data.getuserID;
+
           wx.setStorage({
             key:"floor_open_bool",
             //data:this.data.inputid //start from here to validate
@@ -61,10 +65,8 @@ Page({
   },
 
   developertap(){
-    // var request_url = new url("http://110.42.218.135:9090/cell/testforLuo/");
-    // req
     wx.request({
-      url: 'http://110.42.218.135:9090/cell/testforLuo/' + this.data.getuserID + ',' + this.data.getuserID, 
+      url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
       // data: {
       //   x: '' ,
       //   y: ''
@@ -82,10 +84,6 @@ Page({
      })
 //curl -G http://110.42.218.135:9090/cell/testforLuo
   },
-
-
-
-
 
 })
 

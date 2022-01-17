@@ -76,7 +76,7 @@ Page({
   },
 
   bindregistertap() {
-    if(this.data.userId || this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
+    if(this.data.inputid.length == 0 || this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
       wx.showToast({
         title: '唔該輸入密碼!',
         icon: 'error',
