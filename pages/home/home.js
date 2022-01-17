@@ -61,8 +61,10 @@ Page({
   },
 
   developertap(){
+    // var request_url = new url("http://110.42.218.135:9090/cell/testforLuo/");
+    // req
     wx.request({
-      url: '110.42.218.135/testforLuo', 
+      url: 'http://110.42.218.135:9090/cell/testforLuo/' + this.data.getuserID + ',' + this.data.getuserID, 
       // data: {
       //   x: '' ,
       //   y: ''
@@ -78,12 +80,7 @@ Page({
         console.log(res.data);
        }
      })
-
-
-
-
-
-
+//curl -G http://110.42.218.135:9090/cell/testforLuo
   },
 
 
