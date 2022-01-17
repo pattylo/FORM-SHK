@@ -62,7 +62,7 @@ Page({
           })          
         }
     })          
-  },
+  }, 
 
   developertap(){
     wx.request({
