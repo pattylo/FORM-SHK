@@ -1,11 +1,13 @@
 <!--index.wxml-->
 <view class="container">
 
-<image src='../../utils/images/boxopen.png'></image>
+<image src='../../utils/images/fall.png'></image>
 <text>\n</text>
 
 <text class="user-motto">樓層門已打開\n</text>
 <text>@{{open_time}}</text>
+<text>Floor Opening ID: {{getflooropenid}}</text>
+
 
 
 <text>\n</text>

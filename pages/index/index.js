@@ -17,6 +17,10 @@ Page({
   // function
 
   onLoad() {
+
+    if (wx.canIUse('hideHomeButton')) {
+      wx.hideHomeButton()
+    }
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
@@ -27,12 +31,12 @@ Page({
       key: 'ID',
       success: function(res) {
         console.log(res.data)        
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../home/home',
         })
       },
       fail: function(res){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../regis/regis',
         })
       }

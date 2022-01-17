@@ -9,9 +9,9 @@ Page({
   },
 
   onLoad() {
-    // if (wx.canIUse('hideHomeButton')) {
-    //     wx.hideHomeButton()
-    //   }
+    if (wx.canIUse('hideHomeButton')) {
+        wx.hideHomeButton()
+      }
     var that = this;
     wx.getStorage({
       key: 'ID',
@@ -21,7 +21,8 @@ Page({
           getuserID:res.data
         })
       }
-    })    
+    });
+    
   },
 
   bindScanTap: function() {
@@ -34,7 +35,17 @@ Page({
             icon: 'success',
             duration: 2000
           });
-          wx.navigateTo({
+          wx.setStorage({
+            key:"floor_open_id",
+            //data:this.data.inputid //start from here to validate
+            data:res.result
+          })
+          wx.setStorage({
+            key:"floor_open_bool",
+            //data:this.data.inputid //start from here to validate
+            data:true
+          })
+          wx.redirectTo({
             url: '../open/open',
           })
         },
@@ -47,6 +58,32 @@ Page({
           })          
         }
     })          
+  },
+
+  developertap(){
+    wx.request({
+      url: '110.42.218.135/testforLuo', 
+      // data: {
+      //   x: '' ,
+      //   y: ''
+      // },
+      method:'GET',
+      // header: {
+      //   'content-type': 'application/json'
+      // },
+      success: function(res) {
+       console.log(res.data)
+      },
+      fail: function( res ) {
+        console.log(res.data);
+       }
+     })
+
+
+
+
+
+
   },
 
 

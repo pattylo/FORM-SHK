@@ -11,13 +11,14 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
     getuserID:'',
-    open_time:''
+    open_time:'',
+    getflooropenid:''
   },
 
   onLoad: function() {
-    // if (wx.canIUse('hideHomeButton')) {
-    //     wx.hideHomeButton()
-    //   }
+    if (wx.canIUse('hideHomeButton')) {
+        wx.hideHomeButton()
+      }
     var that = this;
     wx.getStorage({
       key: 'ID',
@@ -28,6 +29,16 @@ Page({
         })
       }
     });
+
+    wx.getStorage({
+      key: 'floor_open_id',
+      success: function(res) {
+        console.log(res.data)        
+        that.setData({
+          getflooropenid:res.data
+        })
+      }
+    }) 
 
     var time_temp = util.formatTime(new Date());
     that.setData({
@@ -52,7 +63,17 @@ Page({
             icon: 'success',
             duration: 2000
           });
-          wx.navigateTo({
+          wx.setStorage({
+            key:"floor_open_id",
+            //data:this.data.inputid //start from here to validate
+            data:res.result
+          })
+          wx.setStorage({
+            key:"floor_open_bool",
+            //data:this.data.inputid //start from here to validate
+            data:false
+          })
+          wx.redirectTo({
             url: '../home/home',
           })
         },
