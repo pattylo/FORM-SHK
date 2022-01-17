@@ -14,10 +14,6 @@
   <text>SHK USER ID: </text>
   <text class="user-motto">{{getuserID}}</text>
 
-  
   <text>\n</text>
-  <text>Scan QR Code</text>
-
-  <text>\n</text>
-  <button type="primary" bindtap="bindScanTap" plain="true" >Scan</button>
+  <button type="primary" bindtap="bindScanTap">Scan QR code to open</button>
 </view>

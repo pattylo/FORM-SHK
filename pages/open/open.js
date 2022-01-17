@@ -1,5 +1,6 @@
 // home.js
 const app = getApp()
+var util = require('../../utils/util');
 
 Page({
   data: {
@@ -9,10 +10,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
-    getuserID:''
+    getuserID:'',
+    open_time:''
   },
 
-  onLoad() {
+  onLoad: function() {
     // if (wx.canIUse('hideHomeButton')) {
     //     wx.hideHomeButton()
     //   }
@@ -25,7 +27,12 @@ Page({
           getuserID:res.data
         })
       }
-    })
+    });
+
+    var time_temp = util.formatTime(new Date());
+    that.setData({
+      open_time: time_temp
+    });
     
   },
   // 事件处理函数
@@ -35,21 +42,29 @@ Page({
     })
   },
 
-  bindScanTap() {
+  bindScanTap: function() {
+    var that = this;
     wx.scanCode({
-        success (res) {
-          console.log(res)
+        success: function(res) {
+          console.log(res);
+          wx.showToast({
+            title: 'Success',
+            icon: 'success',
+            duration: 2000
+          });
+          wx.navigateTo({
+            url: '../home/home',
+          })
+        },
+        fail: (res) =>{
+          console.log(res);
+          wx.showToast({
+            title: 'Failed',
+            icon:'error',
+            duration: 2000
+          })          
         }
-      })
-
-    // wx.getStorage({
-    //     key:'ID',
-    //     success: function(res){
-    //         console.log(res.data)
-    //         testid: this.data.
-    //     }
-    // })
-    
+    })          
   },
 
 })

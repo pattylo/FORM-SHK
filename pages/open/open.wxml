@@ -1,23 +1,17 @@
 <!--index.wxml-->
 <view class="container">
 
-<image src='../../utils/images/shk.png'></image>
-
-<view class="usermotto">
-  <text class="user-motto">{{motto}}</text>
-</view>
-<view class="userinfo">
-  <text class="user-motto">{{motto}}</text>
-</view>
+<image src='../../utils/images/boxopen.png'></image>
 <text>\n</text>
+
+<text class="user-motto">樓層門已打開\n</text>
+<text>@{{open_time}}</text>
+
+
 <text>\n</text>
 <text>SHK USER ID: </text>
 <text class="user-motto">{{getuserID}}</text>
 
-
 <text>\n</text>
-<text>Scan QR Code</text>
-
-<text>\n</text>
-<button type="primary" bindtap="bindScanTap" plain="true" >Scan</button>
+<button type="primary" bindtap="bindScanTap">Scan QR code to close</button>
 </view>
