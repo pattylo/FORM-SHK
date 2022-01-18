@@ -43,7 +43,7 @@ Page({
     });
 
     wx.request({
-      url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
+      url: 'http://110.42.218.135:9090/cell/testforLuo/open,' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
       method:'GET',
       success: function(res) {
        console.log(res.data);
@@ -56,6 +56,8 @@ Page({
         console.log(res.data);
        }
      })
+     getApp().globalData.open_global = true;
+
 
   },
 

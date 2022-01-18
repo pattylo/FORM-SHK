@@ -16,6 +16,7 @@ App({
   globalData: {
     userInfo: null,
     openID_global:'',
-    userID_global:''
+    userID_global:'',
+    open_global:false
   }
 })

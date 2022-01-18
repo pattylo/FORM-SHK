@@ -22,6 +22,24 @@ Page({
         })
       }
     });
+    if(getApp().globalData.open_global){
+      wx.request({
+        url: 'http://110.42.218.135:9090/cell/testforLuo/close,' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
+        method:'GET',
+        success: function(res) {
+         console.log(res.data);
+         that.setData({
+           request: true
+         })
+        },
+  
+        fail: function( res ) {
+          console.log(res.data);
+         }
+       });
+       getApp().globalData.open_global = false;
+    }
+    
     
   },
 
