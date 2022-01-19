@@ -77,11 +77,20 @@ Page({
 
   bindregistertap() {
     if(this.data.inputid.length == 0 || this.data.inputpasscode.length == 0 || this.data.inputpasscode2.length ==0){
-      wx.showToast({
-        title: '唔該輸入密碼!',
-        icon: 'error',
-        duration: 2000
-      })   
+       
+      if(this.data.inputid.length == 0) {
+        wx.showToast({
+          title: '唔該輸入帳號!',
+          icon: 'error',
+          duration: 2000
+        }) 
+      }else{
+        wx.showToast({
+          title: '唔該輸入密碼!',
+          icon: 'error',
+          duration: 2000
+        }) 
+      }
     }else{
       if(this.data.inputpasscode2 == this.data.inputpasscode){
         wx.showToast({

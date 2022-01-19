@@ -17,6 +17,6 @@
   <text>\n</text>
   <button type="warn" bindtap="bindScanTap" plain="false" >Scan QR code to open</button>
   <text>\n</text>
-  <button type="primary" bindtap="developertap" >request http</button>
+  <!-- <button type="primary" bindtap="developertap" >request http</button> -->
 
 </view>

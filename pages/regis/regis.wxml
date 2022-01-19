@@ -37,6 +37,6 @@
   <text>\n</text>
   <button type="primary" bindtap="bindregistertap" plain="true" >Register</button>
   <text>\n</text>
-  <button type="primary" bindtap="developertap"  >developer shortcut</button>
+  <!-- <button type="primary" bindtap="developertap"  >developer shortcut</button> -->
 
 </view>
