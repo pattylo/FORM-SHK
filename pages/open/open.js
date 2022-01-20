@@ -72,29 +72,102 @@ Page({
     })
   },
 
+  // bindScanTap: function() {
+  //   var that = this;
+  //   wx.scanCode({
+  //       success: function(res) {
+  //         console.log(res);
+  //         wx.showToast({
+  //           title: 'Success',
+  //           icon: 'success',
+  //           duration: 2000
+  //         });
+  //         wx.setStorage({
+  //           key:"floor_open_id",
+  //           //data:this.data.inputid //start from here to validate
+  //           data:res.result
+  //         })
+  //         wx.setStorage({
+  //           key:"floor_open_bool",
+  //           //data:this.data.inputid //start from here to validate
+  //           data:false
+  //         })
+  //         wx.redirectTo({
+  //           url: '../home/home',
+  //         })
+  //       },
+  //       fail: (res) =>{
+  //         console.log(res);
+  //         wx.showToast({
+  //           title: 'Failed',
+  //           icon:'error',
+  //           duration: 2000
+  //         })          
+  //       }
+  //   })          
+  // },
+
+
+
+
+  
   bindScanTap: function() {
     var that = this;
     wx.scanCode({
         success: function(res) {
           console.log(res);
-          wx.showToast({
-            title: 'Success',
-            icon: 'success',
-            duration: 2000
-          });
-          wx.setStorage({
-            key:"floor_open_id",
-            //data:this.data.inputid //start from here to validate
-            data:res.result
-          })
-          wx.setStorage({
-            key:"floor_open_bool",
-            //data:this.data.inputid //start from here to validate
-            data:false
-          })
-          wx.redirectTo({
-            url: '../home/home',
-          })
+          
+          // wx.setStorage({
+          //   key:"floor_open_id",
+          //   //data:this.data.inputid //start from here to validate
+          //   data:res.result,            
+          // })
+
+          getApp().globalData.closeID_global = res.result;
+
+          if(res.result == getApp().globalData.openID_global){
+            wx.setStorage({
+              key:"floor_open_bool",
+              //data:this.data.inputid //start from here to validate
+              data:false
+            })
+            wx.showModal({
+              title:'安全警告',
+              content:'確認閂閘 -close?',
+              confirmText: '是',
+              cancelText: '否',
+              success(res){
+                if(res.confirm){
+                  console.log('success');
+                  wx.redirectTo({
+                    url: '../home/home',
+                  });
+                  wx.showToast({
+                    title: 'Success',
+                    icon: 'success',
+                    duration: 2000
+                  });
+                }else{
+                  console.log('failed');
+                  wx.showToast({
+                    title: 'Failed',
+                    icon:'error',
+                    duration: 2000
+                  })  
+                }
+              }
+            })   //here       
+
+          }else{
+            wx.showToast({
+              title: 'Door Different!',
+              icon:'error',
+              duration: 2000
+            })   
+
+          }
+
+          
         },
         fail: (res) =>{
           console.log(res);
@@ -105,7 +178,7 @@ Page({
           })          
         }
     })          
-  },
+  }, 
 })
 
 

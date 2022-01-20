@@ -23,20 +23,20 @@ Page({
       }
     });
     if(getApp().globalData.open_global){
-      wx.request({
-        url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
-        method:'GET',
-        success: function(res) {
-         console.log(res.data);
-         that.setData({
-           request: true
-         })
-        },
+      // wx.request({
+      //   url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
+      //   method:'GET',
+      //   success: function(res) {
+      //    console.log(res.data);
+      //    that.setData({
+      //      request: true
+      //    })
+      //   },
   
-        fail: function( res ) {
-          console.log(res.data);
-         }
-       });
+      //   fail: function( res ) {
+      //     console.log(res.data);
+      //    }
+      //  });
        getApp().globalData.open_global = false;
     }        
   },
@@ -63,7 +63,7 @@ Page({
           })
           wx.showModal({
             title:'安全警告',
-            content:'確認開閘?',
+            content:'確認開閘 -open?',
             confirmText: '是',
             cancelText: '否',
             success(res){
@@ -102,14 +102,9 @@ Page({
   developertap(){
     wx.request({
       url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
-      // data: {
-      //   x: '' ,
-      //   y: ''
-      // },
+   
       method:'GET',
-      // header: {
-      //   'content-type': 'application/json'
-      // },
+
       success: function(res) {
        console.log(res.data)
       },
