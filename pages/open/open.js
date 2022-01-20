@@ -29,17 +29,11 @@ Page({
       }
     });
 
-    wx.getStorage({
-      key: 'floor_open_id',
-      success: function(res) {
-        console.log(res.data)        
-        that.setData({
-          getflooropenid:res.data,
-          floor: res.data.substring(0,2),
-          which_door_id: res.data.substring(2,6)
-        });
-      }
-    }) ;
+    that.setData({
+      getflooropenid:getApp().globalData.openID_global,
+      floor: getApp().globalData.openID_global.substring(0,2),
+      which_door_id: getApp().globalData.openID_global.substring(2,6)
+    })
 
     var time_temp = util.formatTime(new Date());
     
@@ -61,7 +55,7 @@ Page({
         console.log(res.data);
        }
      })
-     getApp().globalData.open_global = true;
+     getApp().globalData.open_global_bool = true;
 
 
   },
@@ -77,21 +71,12 @@ Page({
     wx.scanCode({
         success: function(res) {
           console.log(res);
-          
-          // wx.setStorage({
-          //   key:"floor_open_id",
-          //   //data:this.data.inputid //start from here to validate
-          //   data:res.result,            
-          // })
 
           getApp().globalData.closeID_global = res.result;
 
           if(res.result == getApp().globalData.openID_global){
-            wx.setStorage({
-              key:"floor_open_bool",
-              //data:this.data.inputid //start from here to validate
-              data:false
-            })
+           
+            getApp().globalData.open_global_bool = false;
             wx.showModal({
               title:'安全警告',
               content:'確認閂閘 -close?',
@@ -118,17 +103,13 @@ Page({
                 }
               }
             })   //here       
-
           }else{
             wx.showToast({
               title: 'Door Different!',
               icon:'error',
               duration: 2000
             })   
-
-          }
-
-          
+          } 
         },
         fail: (res) =>{
           console.log(res);

@@ -18,6 +18,6 @@ App({
     openID_global:'',
     closeID_global:'',
     userID_global:'',
-    open_global:false
+    open_global_bool:false
   }
 })
