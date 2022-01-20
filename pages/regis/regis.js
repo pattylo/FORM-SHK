@@ -126,52 +126,7 @@ Page({
       
   },
 
-  doLogin: function(e) {
-    var that = this;
-    if(that.data.username.length ==0 || that.data.password.length ==0){//校验非空
-      wx.showToast({  //弹框提示
-        icon: 'none',
-        title: '用户名或密码不能为空！',
-        duration: 2000,
-      })
-    }else {
-      wx.request({  //向后台发送请求
-        url: '你的请求地址',
-        method: "get",
-        header: { 'content-type': 'application/json' },
-        data: {
-          username: this.data.username, //this.data.username 代表你data中username的值
-          password: this.data.password,
-        },
-        success: function (res) { //res为后台返回给前端的数据
-          console.log("res.data"+res.data.code),
-          that.setData({
-            userId: res.data.data,  //保存userId
-            code: res.data.code,    
-          })
-          console.log(res.data);
-          if(that.data.code == 200){ //如果返回的code为200，代表用户名密码验证成功
-            wx.showToast({
-              title: '登录成功',
-            })
-            wx.setStorageSync('userId', res.data.data); //保存userId至本地，以便随时调用
-            console.log(res.data.data);
-            
-              wx.redirectTo({
-                url: '../index/index',  //跳转至首页
-              })
-          }else{
-            wx.showToast({
-              icon: 'none',
-              title: '用户名或密码错误',
-            })
-          }
- 
-        }
-      })
-    }
-  }
-
+  
 })
 
 
