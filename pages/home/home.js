@@ -80,7 +80,7 @@ Page({
               }else{
                 console.log('failed');
                 wx.showToast({
-                  title: 'Failed',
+                  title: '已取消',
                   icon:'error',
                   duration: 2000
                 })  
