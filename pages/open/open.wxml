@@ -8,7 +8,7 @@
 
 <text>@{{open_time}}\n\n</text>
 
-<text class="boldword">Floor:{{floor}}\n</text>
+<text class="boldword">Floor: {{floor}}\n</text>
 <text class="boldword">Opening ID: {{which_door_id}}\n\n</text>
 <!-- <text>Floor Opening ID: {{getflooropenid}}</text> -->
 
