@@ -38,9 +38,7 @@ Page({
          }
        });
        getApp().globalData.open_global = false;
-    }
-    
-    
+    }        
   },
 
   bindScanTap: function() {
@@ -48,11 +46,7 @@ Page({
     wx.scanCode({
         success: function(res) {
           console.log(res);
-          wx.showToast({
-            title: 'Success',
-            icon: 'success',
-            duration: 2000
-          });
+          
           wx.setStorage({
             key:"floor_open_id",
             //data:this.data.inputid //start from here to validate
@@ -67,9 +61,32 @@ Page({
             //data:this.data.inputid //start from here to validate
             data:true
           })
-          wx.redirectTo({
-            url: '../open/open',
-          })
+          wx.showModal({
+            title:'安全警告',
+            content:'確認開閘?',
+            confirmText: '是',
+            cancelText: '否',
+            success(res){
+              if(res.confirm){
+                console.log('success');
+                wx.redirectTo({
+                  url: '../open/open',
+                });
+                wx.showToast({
+                  title: 'Success',
+                  icon: 'success',
+                  duration: 2000
+                });
+              }else{
+                console.log('failed');
+                wx.showToast({
+                  title: 'Failed',
+                  icon:'error',
+                  duration: 2000
+                })  
+              }
+            }
+          })          
         },
         fail: (res) =>{
           console.log(res);
