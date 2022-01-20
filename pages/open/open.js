@@ -9,7 +9,9 @@ Page({
     getuserID:'',
     open_time:'',
     getflooropenid:'',
-    request:false
+    request:false,
+    floor:'',
+    which_door_id:''
   },
 
   onLoad: function() {
@@ -32,18 +34,21 @@ Page({
       success: function(res) {
         console.log(res.data)        
         that.setData({
-          getflooropenid:res.data
-        })
+          getflooropenid:res.data,
+          floor: res.data.substring(0,2),
+          which_door_id: res.data.substring(2,6)
+        });
       }
     }) ;
 
     var time_temp = util.formatTime(new Date());
+    
     that.setData({
       open_time: time_temp
     });
 
     wx.request({
-      url: 'http://110.42.218.135:9090/cell/testforLuo/open,' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
+      url: 'http://110.42.218.135:9090/cell/testforLuo/' + getApp().globalData.userID_global + ',' + getApp().globalData.openID_global, 
       method:'GET',
       success: function(res) {
        console.log(res.data);

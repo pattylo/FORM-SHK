@@ -17,6 +17,10 @@
   .usermotto {
     margin-top: 20px;
   }
+
+  .boldword{
+    font-weight: bold;
+  }
   
   input{
     width: 300rpx;

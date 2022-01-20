@@ -6,8 +6,11 @@
 
 <text class="user-motto">樓層門已打開\n\n</text>
 
-<text>@{{open_time}}</text>
-<text>Floor Opening ID: {{getflooropenid}}</text>
+<text>@{{open_time}}\n\n</text>
+
+<text class="boldword">Floor:{{floor}}\n</text>
+<text class="boldword">Opening ID: {{which_door_id}}\n\n</text>
+<!-- <text>Floor Opening ID: {{getflooropenid}}</text> -->
 
 <view class="userinfo">
     <block wx:if="{{request}}">
