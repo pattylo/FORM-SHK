@@ -116,17 +116,8 @@ Page({
           duration: 2000
         })    
       }    
-    }
-
-    // wx.setStorage({
-    //   key
-
-    // })
-
-      
-  },
-
-  
+    }      
+  },  
 })
 
 
